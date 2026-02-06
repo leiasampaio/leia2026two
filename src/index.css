@@ -140,7 +140,7 @@ button:focus-visible {
   display: grid;
   place-items: center;
   width:100%;
-  min-height: 100vh;
+  min-height: 70vh;
   position: absolute;
   top: 45em;
   right: 0em;
@@ -149,13 +149,13 @@ button:focus-visible {
   display: grid;
   place-items: end;
   position: relative;
-  bottom: 40em;
-  right: 25em;
+  bottom: 52em;
+  right: 23em;
   height: 0%;
 }
 .f-text1 h1{
   font-size: 1.25em;
-  color: #42AD9B;
+  color: #323837;
   position: inherit;
   left: 0.2em;
 }
@@ -170,8 +170,8 @@ button:focus-visible {
   display: grid;
   place-items: start;
   position: relative;
-  bottom: 25em;
-  left: 25em;
+  bottom: 37em;
+  left: 13em;
   height: 0%;
 }
 .f-text2 h1{
@@ -194,8 +194,10 @@ button:focus-visible {
 }
 .f-section img{
   position: relative;
-  bottom: 0em;
-  width: 700px;
+  bottom: 10em;
+  width: 500px;
+  rotate: 100deg;
+  right: 17em;
 
 }
 
@@ -205,13 +207,50 @@ button:focus-visible {
   display: grid;
   place-items: center;
   width:100%;
-  min-height: 100vh;
+  height: 70vh;
   position: absolute;
   top: 90em;
   right: 0em;
 }
 .s-section img{
   width: 80%;
+}
+
+.secret{
+  display: grid;
+  place-items: center;
+  position: relative;
+  bottom: 10em;
+}
+
+.secret button{
+  position: absolute;
+  color: #000;
+  border: none;
+  border-radius: 0%;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0%;
+  transition: none;
+}
+
+.popup{
+  display: flex;
+  position: absolute;
+  color: #fafaf9;
+  transform: translate(10%, -240%);
+  background-color: #000;
+  margin: 25px;
+  border: 5px solid #000;
+}
+
+.popup button{
+  color: #fafaf9;
+  border: none;
+  border-radius: 0%;
+  background-color:rgba(255, 255, 255, 0);
+  padding: 0%;
+  padding-left: 25px;
+  transition: none;
 }
 
 @media (prefers-color-scheme: light) {
