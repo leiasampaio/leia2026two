@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import imgf from '/images/flower-white.png'
 import Ogif from '/images/image4.gif'
-import Ogif2 from '/images/g1104.gif'
+import Ogif2 from '/images/09f_g235.png'
 
 import './App.css'
 
