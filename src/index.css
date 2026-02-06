@@ -1,0 +1,228 @@
+:root {
+  font-family: 'Namdhinggo', 'Mea Culpa';
+  
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(15, 15, 15, 0.87);
+  background-color: #fafaf9;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(./fonts/Namdhinggo-Regular.ttf) format('ttf');
+}  
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+
+.gif img{
+  width: 650px;
+}
+
+.orb {
+    
+    border-radius: 100%;
+    font-size: 180px;
+    height: 1em;
+    width: 1em;
+    filter: blur(40px);
+    position: relative;
+    z-index: -1;
+}
+
+#zero.orb{
+  background: #ebf070;
+  bottom: 1.6em;
+  right: 0.5em;
+}
+
+#one.orb{
+  background: #A8ED9F;
+  bottom: 3.1em;
+  left: 4em;
+}
+
+#two.orb{
+  background: #42AD9B;
+  bottom: 3.2em;
+  left: 0.5em;
+}
+
+#three.orb{
+  background: #CB9FED;
+  bottom: 3.9em;
+  right: 0.3em;
+}
+
+#four.orb{
+  background: #E9ED9F;
+  bottom: 6.9em;
+  left: 2em;
+}
+
+
+
+
+h1 {
+  margin: 1%;
+  font-size: 4em;
+  line-height: 1.1;
+  text-align: start;
+}
+
+h2{
+  font-family: 'Mea Culpa';
+  font-size: 1.88em;
+  margin: 1%;
+  text-align: start;
+  text-shadow: #5a5959 -1px 1px 4px;
+}
+
+.greet{
+  margin-right: 10%;
+}
+
+.start {
+  display: flex;
+  align-items: center;
+}
+
+.orbs{
+  height: 0px;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.f-section{
+  background-color: #fafaf9;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  width:100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 45em;
+  right: 0em;
+}
+.f-text1{
+  display: grid;
+  place-items: end;
+  position: relative;
+  bottom: 40em;
+  right: 25em;
+  height: 0%;
+}
+.f-text1 h1{
+  font-size: 1.25em;
+  color: #42AD9B;
+  position: inherit;
+  left: 0.2em;
+}
+.f-text1 h2{
+  font-family: 'Namdhinggo';
+  margin: 0%;
+  text-shadow: none;
+  font-size: 0.80em;
+  color: #7b608f;
+}
+.f-text2{
+  display: grid;
+  place-items: start;
+  position: relative;
+  bottom: 25em;
+  left: 25em;
+  height: 0%;
+}
+.f-text2 h1{
+  font-size: 1.25em;
+  width: 100%;
+  color: #C94B59;
+}
+.f-text2 h2{
+  font-family: 'Namdhinggo';
+  margin: 0%;
+  text-shadow: none;
+  font-size: 0.80em;
+  color: #7b608f;
+  position: inherit;
+  left: 0.3em;
+}
+.div-two{
+  display: flex;
+  justify-content: center;
+}
+.f-section img{
+  position: relative;
+  bottom: 0em;
+  width: 700px;
+
+}
+
+.s-section {
+  background-color: #fafaf9;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  width:100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 90em;
+  right: 0em;
+}
+.s-section img{
+  width: 80%;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
