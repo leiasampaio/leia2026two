@@ -1,267 +1,310 @@
 :root {
   font-family: 'Namdhinggo', 'Mea Culpa';
-  
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(15, 15, 15, 0.87);
   background-color: #fafaf9;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@font-face {
-  font-family: 'MyFont';
-  src: local('MyFont'), url(./fonts/Namdhinggo-Regular.ttf) format('ttf');
-}  
-
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* Isso é o segredo para a imagem rotacionada não estourar a tela no celular: */
+  overflow-x: hidden; 
 }
 
-
-
-.gif img{
-  width: 650px;
+/* --- ORBS --- */
+.orbs {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none; /* Impede que os orbs bloqueiem cliques */
+  overflow: hidden;
 }
 
 .orb {
-    
-    border-radius: 100%;
-    font-size: 180px;
-    height: 1em;
-    width: 1em;
-    filter: blur(40px);
-    position: relative;
-    z-index: -1;
+  border-radius: 100%;
+  /* Usa clamp para diminuir os orbs proporcionalmente no celular */
+  font-size: clamp(100px, 15vw, 180px); 
+  height: 1em; width: 1em;
+  filter: blur(40px);
+  position: absolute; /* Mudamos para absolute para ficarem livres */
 }
 
-#zero.orb{
-  background: #ebf070;
-  bottom: 1.6em;
-  right: 0.5em;
-}
+/* Posições relativas à tela inteira */
+#zero.orb { background: #ebf070; top: 15%; right: 5%; }
+#one.orb  { background: #A8ED9F; top: 35%; left: 10%; }
+#two.orb  { background: #42AD9B; top: 60%; left: 5%; }
+#three.orb{ background: #CB9FED; top: 60%; right: 5%; }
+#four.orb { background: #E9ED9F; top: 50%; left: 20%; }
 
-#one.orb{
-  background: #A8ED9F;
-  bottom: 3.1em;
-  left: 4em;
-}
+/* --- TEXTOS BASE --- */
+h1 { margin: 1%; font-size: clamp(2.5em, 8vw, 4em); line-height: 1.1; text-align: start; font-weight: 400; }
+h2 { font-family: 'Mea Culpa'; font-size: clamp(1.5em, 5vw, 1.88em); margin: 1%; text-align: start; font-weight: 400;}
 
-#two.orb{
-  background: #42AD9B;
-  bottom: 3.2em;
-  left: 0.5em;
-}
-
-#three.orb{
-  background: #CB9FED;
-  bottom: 3.9em;
-  right: 0.3em;
-}
-
-#four.orb{
-  background: #E9ED9F;
-  bottom: 6.9em;
-  left: 2em;
-}
-
-
-
-
-h1 {
-  margin: 1%;
-  font-size: 4em;
-  line-height: 1.1;
-  text-align: start;
-}
-
-h2{
-  font-family: 'Mea Culpa';
-  font-size: 1.88em;
-  margin: 1%;
-  text-align: start;
-  text-shadow: #5a5959 -1px 1px 4px;
-}
-
-.greet{
-  margin-right: 10%;
-}
-
+/* --- START SECTION (GIF E NOME) --- */
 .start {
   display: flex;
+  flex-direction: column; /* Empilha no celular */
   align-items: center;
-}
-
-.orbs{
-  height: 0px;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.f-section{
-  background-color: #fafaf9;
-  margin: 0;
-  display: grid;
-  place-items: center;
-  width:100%;
-  min-height: 70vh;
-  position: absolute;
-  top: 45em;
-  right: 0em;
-}
-.f-text1{
-  display: grid;
-  place-items: end;
-  position: relative;
-  bottom: 52em;
-  right: 23em;
-  height: 0%;
-}
-.f-text1 h1{
-  font-size: 1.25em;
-  color: #323837;
-  position: inherit;
-  left: 0.2em;
-}
-.f-text1 h2{
-  font-family: 'Namdhinggo';
-  margin: 0%;
-  text-shadow: none;
-  font-size: 0.80em;
-  color: #7b608f;
-}
-.f-text2{
-  display: grid;
-  place-items: start;
-  position: relative;
-  bottom: 37em;
-  left: 13em;
-  height: 0%;
-}
-.f-text2 h1{
-  font-size: 1.25em;
-  width: 100%;
-  color: #C94B59;
-}
-.f-text2 h2{
-  font-family: 'Namdhinggo';
-  margin: 0%;
-  text-shadow: none;
-  font-size: 0.80em;
-  color: #7b608f;
-  position: inherit;
-  left: 0.3em;
-}
-.div-two{
-  display: flex;
   justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
 }
-.f-section img{
-  position: relative;
-  bottom: 10em;
-  width: 500px;
-  rotate: 100deg;
-  right: 17em;
 
+.gif {
+  order: 1; /* Força o GIF a aparecer primeiro no mobile! */
+  width: 100%;
+  max-width: 650px;
 }
+
+.gif img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.greet {
+  order: 2; /* Força o nome a vir embaixo do GIF no mobile! */
+  margin-top: 2rem; /* Espaço entre o gif e o texto */
+  text-align: center;
+}
+
+.greet h1, .greet h2 { text-align: center; } /* Centraliza no celular */
+
+/* --- F-SECTION (FOTO E TEXTOS ORGÂNICOS) --- */
+.f-section {
+  position: relative; /* Define que os elementos absolutos vão respeitar essa "caixa" */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.f-section img {
+  width: 70%; /* Imagem fica menor no mobile */
+  max-width: 500px;
+  rotate: 100deg; /* Sua rotação original! */
+  position: relative;
+  z-index: 1;
+}
+
+.f-text1, .f-text2 {
+  position: absolute; /* Permite espalhar o texto livremente */
+  z-index: 2;
+  width: 80%; /* Evita que o texto vaze da tela */
+}
+
+/* Posição orgânica para Mobile */
+.f-text1 {
+  top: 10%; 
+  left: 5%;
+}
+.f-text2 {
+  bottom: 10%; 
+  right: 5%;
+  text-align: right; /* Dá um efeito mais assimétrico */
+}
+
+.f-text1 h1, .f-text2 h1 { font-size: 1.25em; }
+.f-text1 h2, .f-text2 h2 { font-family: 'Namdhinggo'; font-size: 0.8em; text-shadow: none; margin: 0; }
+
+.f-text1 h1 { color: #323837; }
+.f-text2 h1 { color: #C94B59; width: 100%; }
+.f-text1 h2, .f-text2 h2 { color: #7b608f; }
 
 .s-section {
-  background-color: #fafaf9;
-  margin: 0;
-  display: grid;
-  place-items: center;
-  width:100%;
-  height: 70vh;
-  position: absolute;
-  top: 90em;
-  right: 0em;
-}
-.s-section img{
-  width: 80%;
-}
-
-.secret{
-  display: grid;
-  place-items: center;
   position: relative;
-  bottom: 10em;
-}
-
-.secret button{
-  position: absolute;
-  color: #000;
-  border: none;
-  border-radius: 0%;
-  background-color: rgba(255, 255, 255, 0);
-  padding: 0%;
-  transition: none;
-}
-
-.popup{
+  min-height: 100vh;
   display: flex;
-  position: absolute;
-  color: #fafaf9;
-  transform: translate(10%, -240%);
-  background-color: #000;
-  margin: 25px;
-  border: 5px solid #000;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-.popup button{
-  color: #fafaf9;
+.secret {
+  position: relative; /* Transforma a div no "ponto de referência" para o botão */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%; 
+  max-width: 1200px; /* Tamanho máximo da imagem no PC */
+}
+
+.secret img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.secret button {
+  position: absolute; /* Tira o botão do fluxo normal e o coloca por cima */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Puxa o botão exatamente para o centro do eixo X e Y */
+  
+  /* Estilização do botão (ajuste as cores conforme sua imagem) */
+  background-color: transparent; 
+  color: #323837; 
+  font-family: 'Namdhinggo';
+  font-size: clamp(1rem, 4vw, 1.5rem); /* Texto responsivo */
+  font-weight: 400;
   border: none;
-  border-radius: 0%;
-  background-color:rgba(255, 255, 255, 0);
-  padding: 0%;
-  padding-left: 25px;
-  transition: none;
+  cursor: pointer;
+  padding: 10px 20px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.secret button:hover {
+  color: #C94B59; /* Cor muda ao passar o mouse para indicar que é clicável */
+}
+
+/* --- POP-UP OVERLAY (FUNDO ESCURO) --- */
+.popup-overlay {
+  position: fixed; /* Fica fixo na tela mesmo se rolar a página */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo preto com 70% de transparência */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Garante que fique por cima de tudo (inclusive dos orbs) */
+}
+
+/* --- CAIXA DO POP-UP --- */
+.popup-content {
+  background-color: #fafaf9;
+  color: #323837;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%; /* Responsivo no mobile */
+  max-width: 400px; /* Limite de tamanho no PC */
+  position: relative;
+}
+
+.popup-content h2 {
+  font-family: 'Namdhinggo';
+  font-size: 1.5rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.popup-content ul {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  
+  /* --- MÁGICA DO SCROLL AQUI --- */
+  max-height: 250px; /* Altura máxima da lista. Pode aumentar ou diminuir esse valor */
+  overflow-y: auto;  /* Adiciona o scroll vertical apenas se os itens passarem do limite */
+  padding-right: 10px; /* Dá um espacinho para a barra de rolagem não colar no texto */
+}
+
+.popup-content ul::-webkit-scrollbar {
+  width: 6px;
+}
+.popup-content ul::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 4px;
+}
+.popup-content ul::-webkit-scrollbar-thumb {
+  background: #323837; /* Cor da barrinha (usando a sua cor de destaque) */
+  border-radius: 4px;
+}
+.popup-content ul::-webkit-scrollbar-thumb:hover {
+  background: #a33845; /* Cor mais escura ao passar o mouse */
+}
+
+.popup-content li {
+  display: flex; /* Coloca o nome do curso e o botão na mesma linha */
+  justify-content: space-between; /* Joga o texto para a esquerda e o botão para a direita */
+  align-items: center; /* Centraliza verticalmente */
+  margin: 15px 0;
+  font-family: 'Namdhinggo';
+  font-size: 1.1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+/* --- BOTÃO DE FECHAR --- */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #323837;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close-btn:hover {
+  color: #C94B59;
+}
+
+.course-name {
+  flex: 1; /* Faz o texto ocupar o máximo de espaço possível */
+  padding-right: 10px; /* Dá um respiro para o texto não colar no botão */
+}
+
+/* --- BOTÃO DE DOWNLOAD --- */
+.download-btn {
+  background-color: #323837;
+  
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Namdhinggo';
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap; /* Impede que a palavra "Baixar" quebre em duas linhas */
+}
+
+.download-btn:hover {
+  background-color: #C94B59; /* Cor de destaque ao passar o mouse */
+}
+
+/* --- ADAPTAÇÃO PARA COMPUTADOR --- */
+@media (min-width: 768px) {
+  .start {
+    flex-direction: row; /* Lado a lado no PC */
+    justify-content: space-around;
   }
-  a:hover {
-    color: #747bff;
+  
+  .greet {
+    order: 1; /* No PC, o nome volta pra esquerda */
+    margin-right: 10%;
+    margin-top: 0;
   }
-  button {
-    background-color: #f9f9f9;
+  .greet h1, .greet h2 { text-align: start; }
+
+  .gif {
+    order: 2; /* No PC, o gif vai pra direita */
+  }
+
+  /* Posições orgânicas espalhadas para Desktop */
+  .f-text1 {
+    top: 20%;
+    left: 9%;
+    width: 30%;
+  }
+
+  .f-text2 {
+    bottom: 25%;
+    right: 15%;
+    width: 30%;
+    text-align: left;
+  }
+
+  .f-section img {
+    right: 20%; /* Empurra a imagem para a esquerda. Aumente o valor se quiser mais para o canto */
   }
 }
