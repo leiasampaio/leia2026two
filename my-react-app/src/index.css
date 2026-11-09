@@ -1,0 +1,304 @@
+:root {
+  font-family: 'Namdhinggo', 'Mea Culpa';
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(15, 15, 15, 0.87);
+  background-color: #fafaf9;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Isso é o segredo para a imagem rotacionada não estourar a tela no celular: */
+  overflow-x: hidden; 
+}
+
+
+.orbs {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.orb {
+  border-radius: 100%;
+  font-size: clamp(100px, 15vw, 180px); 
+  height: 1em; width: 1em;
+  filter: blur(40px);
+  position: absolute;
+}
+
+
+#zero.orb { background: #ebf070; top: 15%; right: 5%; }
+#one.orb  { background: #A8ED9F; top: 35%; left: 10%; }
+#two.orb  { background: #42AD9B; top: 60%; left: 5%; }
+#three.orb{ background: #CB9FED; top: 60%; right: 5%; }
+#four.orb { background: #E9ED9F; top: 50%; left: 20%; }
+
+
+h1 { margin: 1%; font-size: clamp(2.5em, 8vw, 4em); line-height: 1.1; text-align: start; font-weight: 400; }
+h2 { font-family: 'Mea Culpa'; font-size: clamp(1.5em, 5vw, 1.88em); margin: 1%; text-align: start; font-weight: 400;}
+
+
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.gif {
+  order: 1;
+  width: 100%;
+  max-width: 650px;
+}
+
+.gif img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.greet {
+  order: 2;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.greet h1, .greet h2 { text-align: center; }
+
+
+.f-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.f-section img {
+  width: 70%;
+  max-width: 500px;
+  rotate: 100deg;
+  position: relative;
+  z-index: 1;
+}
+
+.f-text1, .f-text2 {
+  position: absolute;
+  z-index: 2;
+  width: 80%;
+}
+
+
+.f-text1 {
+  top: 10%; 
+  left: 5%;
+}
+.f-text2 {
+  bottom: 10%; 
+  right: 5%;
+  text-align: right;
+}
+
+.f-text1 h1, .f-text2 h1 { font-size: 1.25em; }
+.f-text1 h2, .f-text2 h2 { font-family: 'Namdhinggo'; font-size: 0.8em; text-shadow: none; margin: 0; }
+
+.f-text1 h1 { color: #323837; }
+.f-text2 h1 { color: #C94B59; width: 100%; }
+.f-text1 h2, .f-text2 h2 { color: #7b608f; }
+
+.s-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.secret {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%; 
+  max-width: 1200px;
+}
+
+.secret img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.secret button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent; 
+  color: #323837; 
+  font-family: 'Namdhinggo';
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.secret button:hover {
+  color: #C94B59;
+}
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+.popup-content {
+  background-color: #fafaf9;
+  color: #323837;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+}
+
+.popup-content h2 {
+  font-family: 'Namdhinggo';
+  font-size: 1.5rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.popup-content ul {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+.popup-content ul::-webkit-scrollbar {
+  width: 6px;
+}
+.popup-content ul::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 4px;
+}
+.popup-content ul::-webkit-scrollbar-thumb {
+  background: #323837;
+  border-radius: 4px;
+}
+.popup-content ul::-webkit-scrollbar-thumb:hover {
+  background: #a33845;
+}
+
+.popup-content li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  font-family: 'Namdhinggo';
+  font-size: 1.1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #323837;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close-btn:hover {
+  color: #C94B59;
+}
+
+.course-name {
+  flex: 1;
+  padding-right: 10px;
+}
+
+
+.download-btn {
+  background-color: #323837;
+  
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Namdhinggo';
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background-color: #C94B59;
+}
+
+
+@media (min-width: 768px) {
+  .start {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .greet {
+    order: 1;
+    margin-right: 10%;
+    margin-top: 0;
+  }
+  .greet h1, .greet h2 { text-align: start; }
+
+  .gif {
+    order: 2;
+  }
+
+
+  .f-text1 {
+    top: 20%;
+    left: 9%;
+    width: 30%;
+  }
+
+  .f-text2 {
+    bottom: 25%;
+    right: 15%;
+    width: 30%;
+    text-align: left;
+  }
+
+  .f-section img {
+    right: 20%;
+  }
+}
