@@ -97,7 +97,7 @@ function App() {
         >
           <div
             className="popup-content"
-            style={{ width: 'min(900px, 95vw)', height: '85vh' }}
+            style={{ width: 'min(900px, 95vw)', height: '70vh' }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
